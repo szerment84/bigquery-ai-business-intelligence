@@ -1,0 +1,5 @@
+google-cloud-bigquery==3.11.4
+pandas==2.0.3
+matplotlib==3.7.2
+seaborn==0.12.2
+kaggle-secrets==1.0.0
