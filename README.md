@@ -142,9 +142,9 @@ key_json = user_secrets.get_secret("GCP_SA_KEY")
 
 ## 🔗 Demo Links
 
-- **🖥️ Live Kaggle Notebook:** [[Insert your Kaggle notebook link](https://www.kaggle.com/code/martinszerment/bigquery-ai-building-the-future-of-data)]
+- **🖥️ Live Kaggle Notebook:** [Link (https://www.kaggle.com/code/martinszerment/bigquery-ai-building-the-future-of-data)]
 - **📊 Interactive Results:** Available in notebook
-- **📱 Medium Article:** [Insert Medium link when published]
+- **📱 Medium Article:** [Link (https://medium.com/@szerment84/how-i-built-an-ai-business-intelligence-analyst-that-saves-companies-570k-annually-71dfb6608f8a)]
 
 ## 🤝 Contributing
 
@@ -156,7 +156,7 @@ MIT License - See LICENSE file for details
 
 ## 👨‍💻 Author
 
-Created for BigQuery AI Competition - September 2025
+Created for BigQuery AI Competition by Martin Szerment - September 2025
 **Approach 1: The AI Architect** - Building intelligent business applications
 
 ---
