@@ -1,195 +1,120 @@
-# 🌍 Climate-Smart AI Business Intelligence Analyst
+README
+🇬🇧 English description
+BigQuery AI — Building the Future of Data Analysis
 
-**BigQuery AI Competition – Approach 1: The AI Architect**
+This Jupyter notebook demonstrates how to leverage BigQuery AI and generative functions in SQL and Python to build intelligent business applications and workflows.
 
-## Overview
+Features:
 
-A production-ready climate risk analytics system that turns simple business + location context into **executive decisions, live KPIs, and 2025 forecasts**—all **inside BigQuery**. It executes **7/7 BigQuery AI functions** (with a safe fallback for `AI.GENERATE_TABLE`) and uses **BQML ARIMA+** for time-series forecasting.
+Usage of built-in BigQuery AI functions (ML.GENERATE_TEXT, AI.GENERATE, AI.FORECAST, etc.).
 
-**Scope analyzed:** 5 companies • 5 locations • **$390M** assets • **2,900** employees  
-**Dataset:** `climate_risk_analytics` (US)
+Climate, business, and ROI analysis directly in BigQuery.
 
----
+Practical use cases: forecasting, reporting, risk evaluation, and ROI estimation.
 
-## 🎯 Problem Solved
+Step-by-step execution with clearly separated notebook cells.
 
-- Executives lack clear, quantified views of **site-level climate risk** (heat/flood/storm).  
-- Analytic teams spend **25+ hours/week** on manual reports; insights arrive too late.  
-- Climate exposure isn’t linked to **financial impact** or **ROI** of adaptation.  
-- Forecasts and decisions aren’t **auditable** or **repeatable**.
+How to use:
 
----
+Open the .ipynb file in Kaggle Notebooks or Google Colab.
 
-## 💡 Solution
+Configure Google Cloud Vertex AI connection in BigQuery.
 
-A **SQL-first** system on BigQuery that automatically:
-- Generates **executive summaries** and **structured risk profiles** per location.  
-- Produces **yes/no decisions**, **numeric scores**, and **int** estimates from prompts.  
-- Trains **ARIMA_PLUS** models to forecast **extreme-heat days** and **cost impacts**.  
-- Publishes **live executive KPIs** via a **materialized view (MV-safe pattern)**.  
-- Logs **method (AI/BQML/FALLBACK), confidence, cost, and latency** for auditability.
+Select a model available in Vertex AI (e.g., Gemini).
 
-**BigQuery AI used:**  
-`ML.GENERATE_TEXT`, `AI.GENERATE`, `AI.GENERATE_BOOL`, `AI.GENERATE_DOUBLE`, `AI.GENERATE_INT`, `AI.GENERATE_TABLE` *(fallback path)*, `AI.FORECAST` *(via BQML `ML.FORECAST`)*
+Generate and upload your service account JSON key for authentication in the notebook.
 
----
+Run each cell step by step and adjust input parameters as needed.
 
-## 📊 Key Results
+Business applications:
 
-| Metric | Result |
-|---|---|
-| Portfolio Risk Score | **36.7 / 100** |
-| High-Risk Locations | **3 / 5** |
-| Estimated Annual Climate Loss | **$33.5M** |
-| 10-Year Potential Savings | **$251M** (75% loss reduction) |
-| Adaptation ROI | **~1,675%** |
-| Forecast Confidence | **~0.80** (Phoenix & Miami) |
-| AI Functions Operational | **7 / 7** *(table uses labeled fallback when model arg required)* |
+Prioritizing investments and locations.
 
-**2025 Forecasts**  
-• **Phoenix:** **170** extreme-heat days → **HIGH** risk, est. cost **$340k**  
-• **Miami:** **115** extreme-heat days → **MEDIUM** risk, est. cost **$230k**
+Automated KPI reporting.
 
----
+Forecasting market and climate impacts.
 
-## 🏗️ Architecture
+Building intelligent dashboards in BigQuery.
 
-Seed Business & Location Data (assets, employees, exposure)
-↓
-Generative SQL (ML.GENERATE_TEXT / AI.GENERATE / BOOL / DOUBLE / INT)
-↓
-BQML Forecasting (ARIMA_PLUS via ML.FORECAST → 2025 extreme-heat days & costs)
-↓
-MV-Safe KPIs (single base table → exec_climate_kpis materialized view)
-↓
-Audit & Observability (climate_findings: method, confidence, cost, latency)
+🔧 Section 2 — User Parameters (Python)
 
-yaml
-Skopiuj kod
+In the notebook, users must provide specific parameters to customize the analysis:
 
-**MV pattern:** one **base table** (`portfolio_base`) → **simple expressions only** in MV (`exec_climate_kpis`) to satisfy BigQuery MV constraints.
+# Location parameters
+country_code = 'PL'          # ISO country code
+city_name = 'Kraków'         # City name (ASCII characters recommended)
+since_year = 2015            # Start year for analysis
 
----
+# BigQuery connection
+conn = 'us.vertex_ai_connection'   # Vertex AI connection
 
-## 🚀 Features
+# Business ROI parameters
+cost_per_hour_pln = 1800.0        # Downtime cost per hour [PLN]
+hours_lost_per_heat_day = 2.0     # Hours lost per extreme heat day
+productivity_drop_pct = 0.08      # Productivity decrease during heat (%)
+capex_adaptation_pln = 120000.0   # CAPEX for adaptation [PLN]
+opex_year_pln = 12000.0           # Annual OPEX for adaptation [PLN]
+amort_years = 5                   # Investment amortization period [years]
 
-### 1) Executive Climate Reports (per company)
-- `ML.GENERATE_TEXT` creates concise, board-ready summaries with risks & mitigations.
 
-### 2) Structured Risk Profiles
-- `AI.GENERATE` returns **JSON** with `flood_risk`, `heat_risk`, `operational_impact (1–10)`, `primary_concern`.
+These parameters are editable by the user and directly affect ROI and climate risk calculations.
 
-### 3) Decision & Scoring Guardrails
-- `AI.GENERATE_BOOL` → evacuation / investment-safe / ESG-compliant / act-now  
-- `AI.GENERATE_DOUBLE` → 0–100 risk and impact scores  
-- `AI.GENERATE_INT` → downtime days, employees at risk, competitive ranking
+🇵🇱 Opis projektu
+BigQuery AI — Budowanie przyszłości analizy danych
 
-### 4) Forecasts You Can Plan On
-- BQML **ARIMA_PLUS** forecasts **extreme-heat days** & cost impact for 2025.  
-- Confidence, upper/lower bounds, and **risk categorization** per location.
+Ten notatnik Jupyter pokazuje, jak wykorzystać BigQuery AI oraz funkcje generatywne w SQL i Pythonie do budowania inteligentnych aplikacji biznesowych i przepływów pracy.
 
-### 5) Live Executive KPIs (MV)
-- Risk category, loss estimate, risk score component, critical infra flags.  
-- **Query-ready** for dashboards (Looker Studio, Connected Sheets, etc.).
+Funkcjonalności:
 
-### 6) Full Observability
-- `climate_findings` tracks **AI/BQML/FALLBACK**, confidence, processing time, and cost per function.
+Wykorzystanie wbudowanych funkcji BigQuery AI (ML.GENERATE_TEXT, AI.GENERATE, AI.FORECAST).
 
----
+Analiza klimatyczna, biznesowa i ROI bezpośrednio w BigQuery.
 
-## 💻 Technology Stack
+Praktyczne przykłady: prognozowanie, raportowanie, ocena ryzyka i ROI.
 
-- **BigQuery SQL + BigQuery AI**: `ML.GENERATE_TEXT`, `AI.GENERATE*`, `ML.FORECAST`  
-- **BQML**: `ARIMA_PLUS`  
-- **Python / Kaggle**: orchestration & prints, secrets handling  
-- **Governance**: metadata logging, explicit labeled fallbacks
+Kod podzielony na osobne komórki dla łatwiejszego śledzenia.
 
----
+Jak uruchomić:
 
-## 🛠️ Setup & Installation
+Otwórz plik .ipynb w Kaggle Notebooks lub Google Colab.
 
-### Prerequisites
-- GCP project with **BigQuery** and **Vertex AI** enabled  
-- A **BigQuery connection** to Vertex AI (e.g., `us.vertex_ai_connection`)  
-- Kaggle account (to run the notebook)
+Skonfiguruj połączenie z Google Cloud Vertex AI w BigQuery.
 
-### Quick Start
-1. Open `climate_smart_business_risk_assessment.ipynb` in Kaggle.  
-2. In **Kaggle Secrets**, add `GCP_SA_KEY` (service account JSON).  
-3. Set your project/config and **Run All**.
+Wybierz odpowiedni model (np. Gemini).
 
-### Configuration
-```python
-PROJECT_ID   = "your-project-id"
-DATASET_ID   = "climate_risk_analytics"
-LOCATION     = "us"
-CONNECTION_ID= "vertex_ai_connection"  # must exist in your project/region
-MODEL_NAME   = "gemini_climate_model"  # optional alias used in prompts
+Wygeneruj i załaduj plik JSON z kluczem konta serwisowego do autoryzacji w notatniku.
 
-# Kaggle secrets
-from kaggle_secrets import UserSecretsClient
-from google.oauth2 import service_account
-user_secrets = UserSecretsClient()
-creds_info   = json.loads(user_secrets.get_secret("GCP_SA_KEY"))
-credentials  = service_account.Credentials.from_service_account_info(creds_info)
-Note: AI.GENERATE_TABLE requires a MODEL argument in current BigQuery.
-The notebook includes a transparent fallback (clearly labeled) so pipelines don’t break.
+Uruchamiaj kolejne komórki krok po kroku i modyfikuj parametry wejściowe.
 
-📈 Business Impact
-Quantified Benefits (portfolio example)
-Annual climate loss: $33.5M baseline
+Zastosowania biznesowe:
 
-10-yr savings: $251M with 75% reduction
+Priorytetyzacja inwestycji i lokalizacji biznesowych.
 
-Adaptation ROI: ~1,675% (quick wins ~600–680% ROI, ~2-month payback)
+Automatyczne raportowanie KPI.
 
-Ops time savings: 90%+ vs. manual reporting
+Prognozowanie trendów klimatycznych i biznesowych.
 
-Day-1 Actions for Executives
-Fund cooling systems & employee safety first (fastest ROI).
+Tworzenie inteligentnych dashboardów opartych o BigQuery.
 
-Use yes/no guardrails for expansion & ESG decisions.
+🔧 Sekcja 2 — Parametry użytkownika (Python)
 
-Track risk shifts & loss estimates via the MV.
+W notatniku znajduje się sekcja, w której użytkownik wprowadza swoje dane wejściowe. To one determinują wynik analizy:
 
-🏆 Competition Readiness
-Approach 1: The AI Architect — implemented end-to-end
+# Parametry lokalizacji
+country_code = 'PL'          # Kod kraju ISO
+city_name = 'Kraków'         # Nazwa miasta (lepiej bez znaków diakrytycznych)
+since_year = 2015            # Rok początkowy analizy
 
-✅ 7/7 AI functions exercised (table generation with labeled fallback)
+# Połączenie do Vertex AI
+conn = 'us.vertex_ai_connection'   # Połączenie z Vertex AI w BigQuery
 
-✅ BQML ARIMA+ forecasting with confidence
+# Parametry biznesowe (ROI)
+cost_per_hour_pln = 1800.0        # Koszt godziny przestoju [PLN]
+hours_lost_per_heat_day = 2.0     # Liczba godzin straconych w dniu upału
+productivity_drop_pct = 0.08      # Spadek wydajności (%) w czasie upałów
+capex_adaptation_pln = 120000.0   # CAPEX adaptacji klimatycznej [PLN]
+opex_year_pln = 12000.0           # Roczny OPEX adaptacji [PLN]
+amort_years = 5                   # Okres amortyzacji inwestycji [lata]
 
-✅ MV-safe KPIs + audit trail
 
-✅ Clean, reproducible notebook & documentation
-
-📂 Files Structure
-bash
-Skopiuj kod
-├── climate_smart_business_risk_assessment.ipynb  # Main notebook
-├── README.md                                     # This file
-├── requirements.txt                              # Dependencies (Kaggle friendly)
-├── results/
-│   ├── exec_climate_kpis.csv
-│   ├── climate_forecasts_2025.csv
-│   └── climate_findings.csv
-└── docs/
-    ├── architecture_diagram.png
-    └── mv_pattern_and_governance.md
-🔗 Demo Links
-🖥️ Live Kaggle Notebook: [Add your link]
-
-💻 GitHub Repository: [Add your link]
-
-📄 Write-up / Article: [Add your Medium link]
-
-🤝 Contributing
-Built for the BigQuery AI – Building the Future of Data competition.
-Fork it to adapt for your own climate/asset portfolio.
-
-📄 License
-MIT License — see LICENSE.
-
-👨‍💻 Author
-Created by Martin Szerment — September 2025
-Approach 1: The AI Architect — climate-smart business intelligence
+➡️ Ta sekcja pozwala użytkownikowi dostosować analizę do własnej lokalizacji, kosztów i założeń biznesowych.
