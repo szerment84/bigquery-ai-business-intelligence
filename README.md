@@ -1,45 +1,37 @@
-README
-🇬🇧 English description
-BigQuery AI — Building the Future of Data Analysis
+# README
 
-This Jupyter notebook demonstrates how to leverage BigQuery AI and generative functions in SQL and Python to build intelligent business applications and workflows.
+## 🇬🇧 English description
 
-Features:
+### BigQuery AI — Building the Future of Data Analysis
 
-Usage of built-in BigQuery AI functions (ML.GENERATE_TEXT, AI.GENERATE, AI.FORECAST, etc.).
+This Jupyter notebook demonstrates how to leverage **BigQuery AI** and generative functions in SQL and Python to build intelligent business applications and workflows.
 
-Climate, business, and ROI analysis directly in BigQuery.
+### Features:
+- Usage of built-in BigQuery AI functions (`ML.GENERATE_TEXT`, `AI.GENERATE`, `AI.FORECAST`, etc.).  
+- Climate, business, and ROI analysis directly in BigQuery.  
+- Practical use cases: forecasting, reporting, risk evaluation, and ROI estimation.  
+- Step-by-step execution with clearly separated notebook cells.  
 
-Practical use cases: forecasting, reporting, risk evaluation, and ROI estimation.
+### How to use:
+1. Open the `.ipynb` file in **Kaggle Notebooks** or **Google Colab**.  
+2. Configure **Google Cloud Vertex AI connection** in BigQuery.  
+3. Select a model available in Vertex AI (e.g., Gemini).  
+4. Generate and upload your **service account JSON key** for authentication in the notebook.  
+5. Run each cell step by step and adjust input parameters as needed.  
 
-Step-by-step execution with clearly separated notebook cells.
+### Business applications:
+- Prioritizing investments and locations.  
+- Automated KPI reporting.  
+- Forecasting market and climate impacts.  
+- Building intelligent dashboards in BigQuery.  
 
-How to use:
+---
 
-Open the .ipynb file in Kaggle Notebooks or Google Colab.
-
-Configure Google Cloud Vertex AI connection in BigQuery.
-
-Select a model available in Vertex AI (e.g., Gemini).
-
-Generate and upload your service account JSON key for authentication in the notebook.
-
-Run each cell step by step and adjust input parameters as needed.
-
-Business applications:
-
-Prioritizing investments and locations.
-
-Automated KPI reporting.
-
-Forecasting market and climate impacts.
-
-Building intelligent dashboards in BigQuery.
-
-🔧 Section 2 — User Parameters (Python)
+### 🔧 Section 2 — User Parameters (Python)
 
 In the notebook, users must provide specific parameters to customize the analysis:
 
+```python
 # Location parameters
 country_code = 'PL'          # ISO country code
 city_name = 'Kraków'         # City name (ASCII characters recommended)
@@ -55,17 +47,13 @@ productivity_drop_pct = 0.08      # Productivity decrease during heat (%)
 capex_adaptation_pln = 120000.0   # CAPEX for adaptation [PLN]
 opex_year_pln = 12000.0           # Annual OPEX for adaptation [PLN]
 amort_years = 5                   # Investment amortization period [years]
-
-
 These parameters are editable by the user and directly affect ROI and climate risk calculations.
 
 🇵🇱 Opis projektu
 BigQuery AI — Budowanie przyszłości analizy danych
-
 Ten notatnik Jupyter pokazuje, jak wykorzystać BigQuery AI oraz funkcje generatywne w SQL i Pythonie do budowania inteligentnych aplikacji biznesowych i przepływów pracy.
 
 Funkcjonalności:
-
 Wykorzystanie wbudowanych funkcji BigQuery AI (ML.GENERATE_TEXT, AI.GENERATE, AI.FORECAST).
 
 Analiza klimatyczna, biznesowa i ROI bezpośrednio w BigQuery.
@@ -75,7 +63,6 @@ Praktyczne przykłady: prognozowanie, raportowanie, ocena ryzyka i ROI.
 Kod podzielony na osobne komórki dla łatwiejszego śledzenia.
 
 Jak uruchomić:
-
 Otwórz plik .ipynb w Kaggle Notebooks lub Google Colab.
 
 Skonfiguruj połączenie z Google Cloud Vertex AI w BigQuery.
@@ -87,7 +74,6 @@ Wygeneruj i załaduj plik JSON z kluczem konta serwisowego do autoryzacji w nota
 Uruchamiaj kolejne komórki krok po kroku i modyfikuj parametry wejściowe.
 
 Zastosowania biznesowe:
-
 Priorytetyzacja inwestycji i lokalizacji biznesowych.
 
 Automatyczne raportowanie KPI.
@@ -97,9 +83,10 @@ Prognozowanie trendów klimatycznych i biznesowych.
 Tworzenie inteligentnych dashboardów opartych o BigQuery.
 
 🔧 Sekcja 2 — Parametry użytkownika (Python)
-
 W notatniku znajduje się sekcja, w której użytkownik wprowadza swoje dane wejściowe. To one determinują wynik analizy:
 
+python
+Skopiuj kod
 # Parametry lokalizacji
 country_code = 'PL'          # Kod kraju ISO
 city_name = 'Kraków'         # Nazwa miasta (lepiej bez znaków diakrytycznych)
@@ -115,6 +102,4 @@ productivity_drop_pct = 0.08      # Spadek wydajności (%) w czasie upałów
 capex_adaptation_pln = 120000.0   # CAPEX adaptacji klimatycznej [PLN]
 opex_year_pln = 12000.0           # Roczny OPEX adaptacji [PLN]
 amort_years = 5                   # Okres amortyzacji inwestycji [lata]
-
-
 ➡️ Ta sekcja pozwala użytkownikowi dostosować analizę do własnej lokalizacji, kosztów i założeń biznesowych.
