@@ -47,46 +47,44 @@ productivity_drop_pct = 0.08      # Productivity decrease during heat (%)
 capex_adaptation_pln = 120000.0   # CAPEX for adaptation [PLN]
 opex_year_pln = 12000.0           # Annual OPEX for adaptation [PLN]
 amort_years = 5                   # Investment amortization period [years]
-These parameters are editable by the user and directly affect ROI and climate risk calculations.
+```
 
-🇵🇱 Opis projektu
-BigQuery AI — Budowanie przyszłości analizy danych
-Ten notatnik Jupyter pokazuje, jak wykorzystać BigQuery AI oraz funkcje generatywne w SQL i Pythonie do budowania inteligentnych aplikacji biznesowych i przepływów pracy.
+These parameters are **editable** by the user and directly affect ROI and climate risk calculations.  
 
-Funkcjonalności:
-Wykorzystanie wbudowanych funkcji BigQuery AI (ML.GENERATE_TEXT, AI.GENERATE, AI.FORECAST).
+---
 
-Analiza klimatyczna, biznesowa i ROI bezpośrednio w BigQuery.
+## 🇵🇱 Opis projektu
 
-Praktyczne przykłady: prognozowanie, raportowanie, ocena ryzyka i ROI.
+### BigQuery AI — Budowanie przyszłości analizy danych
 
-Kod podzielony na osobne komórki dla łatwiejszego śledzenia.
+Ten notatnik Jupyter pokazuje, jak wykorzystać **BigQuery AI** oraz funkcje generatywne w SQL i Pythonie do budowania inteligentnych aplikacji biznesowych i przepływów pracy.
 
-Jak uruchomić:
-Otwórz plik .ipynb w Kaggle Notebooks lub Google Colab.
+### Funkcjonalności:
+- Wykorzystanie wbudowanych funkcji BigQuery AI (`ML.GENERATE_TEXT`, `AI.GENERATE`, `AI.FORECAST`).  
+- Analiza klimatyczna, biznesowa i ROI bezpośrednio w BigQuery.  
+- Praktyczne przykłady: prognozowanie, raportowanie, ocena ryzyka i ROI.  
+- Kod podzielony na osobne komórki dla łatwiejszego śledzenia.  
 
-Skonfiguruj połączenie z Google Cloud Vertex AI w BigQuery.
+### Jak uruchomić:
+1. Otwórz plik `.ipynb` w **Kaggle Notebooks** lub **Google Colab**.  
+2. Skonfiguruj połączenie z **Google Cloud Vertex AI** w BigQuery.  
+3. Wybierz odpowiedni model (np. Gemini).  
+4. Wygeneruj i załaduj **plik JSON z kluczem konta serwisowego** do autoryzacji w notatniku.  
+5. Uruchamiaj kolejne komórki krok po kroku i modyfikuj parametry wejściowe.  
 
-Wybierz odpowiedni model (np. Gemini).
+### Zastosowania biznesowe:
+- Priorytetyzacja inwestycji i lokalizacji biznesowych.  
+- Automatyczne raportowanie KPI.  
+- Prognozowanie trendów klimatycznych i biznesowych.  
+- Tworzenie inteligentnych dashboardów opartych o BigQuery.  
 
-Wygeneruj i załaduj plik JSON z kluczem konta serwisowego do autoryzacji w notatniku.
+---
 
-Uruchamiaj kolejne komórki krok po kroku i modyfikuj parametry wejściowe.
+### 🔧 Sekcja 2 — Parametry użytkownika (Python)
 
-Zastosowania biznesowe:
-Priorytetyzacja inwestycji i lokalizacji biznesowych.
-
-Automatyczne raportowanie KPI.
-
-Prognozowanie trendów klimatycznych i biznesowych.
-
-Tworzenie inteligentnych dashboardów opartych o BigQuery.
-
-🔧 Sekcja 2 — Parametry użytkownika (Python)
 W notatniku znajduje się sekcja, w której użytkownik wprowadza swoje dane wejściowe. To one determinują wynik analizy:
 
-python
-Skopiuj kod
+```python
 # Parametry lokalizacji
 country_code = 'PL'          # Kod kraju ISO
 city_name = 'Kraków'         # Nazwa miasta (lepiej bez znaków diakrytycznych)
@@ -102,4 +100,6 @@ productivity_drop_pct = 0.08      # Spadek wydajności (%) w czasie upałów
 capex_adaptation_pln = 120000.0   # CAPEX adaptacji klimatycznej [PLN]
 opex_year_pln = 12000.0           # Roczny OPEX adaptacji [PLN]
 amort_years = 5                   # Okres amortyzacji inwestycji [lata]
-➡️ Ta sekcja pozwala użytkownikowi dostosować analizę do własnej lokalizacji, kosztów i założeń biznesowych.
+```
+
+➡️ Ta sekcja pozwala użytkownikowi **dostosować analizę** do własnej lokalizacji, kosztów i założeń biznesowych.  
