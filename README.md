@@ -34,8 +34,8 @@ In the notebook, users must provide specific parameters to customize the analysi
 ```python
 # Location parameters
 country_code = 'PL'          # ISO country code
-city_name = 'Kraków'         # City name (ASCII characters recommended)
-since_year = 2015            # Start year for analysis
+city_name = 'Warszawa'         # City name (ASCII characters recommended)
+since_year = 2020            # Start year for analysis
 
 # BigQuery connection
 conn = 'us.vertex_ai_connection'   # Vertex AI connection
@@ -87,8 +87,8 @@ W notatniku znajduje się sekcja, w której użytkownik wprowadza swoje dane wej
 ```python
 # Parametry lokalizacji
 country_code = 'PL'          # Kod kraju ISO
-city_name = 'Kraków'         # Nazwa miasta (lepiej bez znaków diakrytycznych)
-since_year = 2015            # Rok początkowy analizy
+city_name = 'Warszawa'         # Nazwa miasta (lepiej bez znaków diakrytycznych)
+since_year = 2020            # Rok początkowy analizy
 
 # Połączenie do Vertex AI
 conn = 'us.vertex_ai_connection'   # Połączenie z Vertex AI w BigQuery
